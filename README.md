@@ -10,7 +10,7 @@ This web app shows the value of one currency in differnt currencies.
 exchangerate-api
 
 ## Website Link
-
+https://luxury-mandazi-3bc9ef.netlify.app/
 
 # Getting Started with Create React App
 
