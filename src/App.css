@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header{
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap:2em ;
 }
-
-.App-link {
-  color: #61dafb;
+.currencyrow{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h1{
+  font-size: 50px;
+  font-weight: 600;
+}
+input{
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #333;
+}
+select{
+  padding: 10px 20px;
+  margin-left: 5px;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+.equals{
+  font-size: 40px;
+}
+.hero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+}
+.heading h1{
+  font-size: 35px;
+}
+.bannerchart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.bannerchart p{
+  font-size: 25px;
+}
+.bannerchart h2{
+  font-size: 30px;
+}
+@media screen and (min-width:768px) {
+  .heading h1{
+    font-size: 50px;
   }
-  to {
-    transform: rotate(360deg);
+  .bannerchart h2{
+    font-size: 40px;
   }
+  .bannerchart p{
+    font-size: 30px;
+  }
+  .header{
+    margin-top: 60px;
+  }
+  .header h1{
+    font-size: 40px;
+  }
+  
 }
