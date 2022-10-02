@@ -14,7 +14,7 @@ function BannerChart(props) {
     </div>
     <div className='bannerchart'>
         <h2> Today's Price</h2>
-        <p>One {fromCurrency} = {exchangeRates} {tocurrency}</p>
+        <p>One {fromCurrency} = {Math.round(exchangeRates*100)/100} {tocurrency}</p>
     </div>
     </div>
     </>
