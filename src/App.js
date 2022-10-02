@@ -53,7 +53,9 @@ function handleToAmountChange(e){
   setAmount(e.target.value)
   setAmountInFromCurrency(false)
 }
-
+function handleClear(){
+  setAmount(0)
+}
 
 
   return (
@@ -84,6 +86,9 @@ function handleToAmountChange(e){
     onChangeAmount={handleToAmountChange}
 
     />
+
+    <button className='clear' onClick={handleClear}>Clear</button>
+    
     </div>
     </div>
     </>
