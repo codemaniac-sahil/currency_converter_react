@@ -2,6 +2,7 @@ import { useEffect,useState } from 'react';
 import './App.css';
 import BannerChart from './components/BannerChart';
 import CurrencyRow from './components/CurrencyRow';
+import GitIcon from './components/GitIcon';
 const BASE_URL='https://v6.exchangerate-api.com/v6/62eef46e2964c6f134cf92cc/latest/USD'
 
 function App() {
@@ -60,6 +61,7 @@ function handleClear(){
 
   return (
     <>
+    <GitIcon/>
     <BannerChart
     fromCurrency={fromCurrency}
     tocurrency={tocurrency}
