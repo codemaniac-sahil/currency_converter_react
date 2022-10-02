@@ -4,8 +4,9 @@
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-
+  background-color: skyblue;
 }
+
 .header{
   margin-top: 100px;
   display: flex;
@@ -13,6 +14,7 @@
   align-items: center;
   justify-content: center;
   gap:2em ;
+ 
 }
 .currencyrow{
   display: flex;
@@ -22,6 +24,7 @@
   text-align: center;
 }
 h1{
+  color: darkblue;
   font-size: 50px;
   font-weight: 600;
 }
@@ -45,9 +48,10 @@ select{
   align-items: center;
   justify-content: center;
   gap: 1.5em;
+  
 }
 .heading h1{
-  font-size: 35px;
+  font-size: 2em;
 }
 .bannerchart{
   display: flex;
@@ -65,19 +69,21 @@ select{
   font-size: 16px;
   margin-top: 24px;
   padding: 4px 10px;
+  color: skyblue;
+  background-color: darkblue;
 }
 @media screen and (min-width:768px) {
   .heading h1{
-    font-size: 50px;
-  }
-  .bannerchart h2{
     font-size: 40px;
   }
+  .bannerchart h2{
+    font-size: 25px;
+  }
   .bannerchart p{
-    font-size: 30px;
+    font-size: 20px;
   }
   .header{
-    margin-top: 60px;
+    margin-top: 40px;
   }
   .header h1{
     font-size: 40px;
