@@ -1,23 +1,23 @@
 import React from 'react'
 
 function CurrencyRow(props) {
-  const{
+  const {
     currencyOption,
     selectedCurrency,
     onChangeCurrency,
     onChangeAmount,
     amount
-  }=props
+  } = props
   return (
     <div>
 
-        <input type='number' className='input' value={amount} onChange={onChangeAmount}/>
-        <select value={selectedCurrency} onChange={onChangeCurrency}>
-          {currencyOption.map(option=>(
-            <option key={option} value={option}>{option}</option>
-          ))}
-            
-        </select>
+      <input type='number' className='input' value={amount} onChange={onChangeAmount} min="0" />
+      <select value={selectedCurrency} onChange={onChangeCurrency}>
+        {currencyOption.map(option => (
+          <option key={option} value={option}>{option}</option>
+        ))}
+
+      </select>
     </div>
   )
 }
