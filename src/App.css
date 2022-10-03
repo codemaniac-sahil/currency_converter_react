@@ -1,92 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-*{
-  padding: 0;
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background-color: skyblue;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.header{
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap:2em ;
- 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
 }
-.currencyrow{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
-h1{
-  color: darkblue;
-  font-size: 50px;
-  font-weight: 600;
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
 }
-input{
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: 2px solid #333;
-}
-select{
-  padding: 10px 20px;
-  margin-left: 5px;
-  border: 2px solid #333;
-  border-radius: 5px;
-}
-.equals{
-  font-size: 40px;
-}
-.hero{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5em;
-  
-}
-.heading h1{
-  font-size: 2em;
-}
-.bannerchart{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-.bannerchart p{
-  font-size: 25px;
-}
-.bannerchart h2{
-  font-size: 30px;
-}
-.clear {
-  font-size: 16px;
-  margin-top: 24px;
-  padding: 4px 10px;
-  color: skyblue;
-  background-color: darkblue;
-}
-@media screen and (min-width:768px) {
-  .heading h1{
-    font-size: 40px;
-  }
-  .bannerchart h2{
-    font-size: 25px;
-  }
-  .bannerchart p{
-    font-size: 20px;
-  }
-  .header{
-    margin-top: 40px;
-  }
-  .header h1{
-    font-size: 40px;
-  }
-  
+
+h4 {
+    font-size: 1rem;
+    font-weight: 600;
 }
