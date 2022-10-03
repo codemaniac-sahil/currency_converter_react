@@ -15,7 +15,7 @@ function BannerChart(props) {
             <div className="text-center">
                 <h2 className={'font-bold'}> Today's Price</h2>
                 <p className={'text-xl font-light'}>
-                    One {fromCurrency} = {Math.round(exchangeRates * 100) / 100} {tocurrency}
+                    One {fromCurrency} = {Math.round((exchangeRates + Number.EPSILON) * 100) / 100} {tocurrency}
                 </p>
             </div>
             <div className={'h-[1px] w-[200px] bg-gray-400/50 mb-5'} />
