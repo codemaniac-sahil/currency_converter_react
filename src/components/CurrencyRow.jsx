@@ -1,4 +1,5 @@
 import React from 'react';
+import './CurrencyRow.css';
 
 function CurrencyRow(props) {
     const { currencyOption, selectedCurrency, onChangeCurrency, onChangeAmount, amount } = props;
