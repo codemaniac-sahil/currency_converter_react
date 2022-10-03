@@ -4,7 +4,7 @@
 <b> This web app shows the value of one currency in differnt currencies. </b>
 </p>
 
-![Currency Converter Web App](https://github.com/Chitvan14/currency_converter_react/raw/chitvangarg/src/assets/images/banner.png)
+![CC design](https://user-images.githubusercontent.com/75212002/193637448-a98cc0eb-0ddd-4647-b32e-99ee32f74cc5.jpg)
 
 <p align="center">
     👨‍💻 Website link:
