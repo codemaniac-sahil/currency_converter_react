@@ -20,6 +20,12 @@ Before installation, please make sure you have already installed the following t
 - [Git](https://git-scm.com/downloads)
 - [Nodejs](https://nodejs.org/en/download/)
 
+### Alternative - Docker
+
+1. Ensure you have Docker installed
+1. Open your terminal/command line tool
+1. Run `docker-compose up`
+1. Open your browser to [http://localhost:3000/](http://localhost:3000/)
 ---
 
 ### 🛠️ Installation Steps
