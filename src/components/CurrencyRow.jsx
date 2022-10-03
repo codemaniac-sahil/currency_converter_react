@@ -19,7 +19,7 @@ function CurrencyRow(props) {
                 onChange={onChangeCurrency}
             >
                 {currencyOption.map((option) => (
-                    <option key={option} value={option}>
+                    <option key={option} value={option} className={'text-black'}>
                         {option}
                     </option>
                 ))}
