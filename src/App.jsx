@@ -61,7 +61,7 @@ function App() {
     return (
         <div
             className={
-                'w-screen h-screen flex flex-col gap-10 items-center justify-center bg-gradient-to-br from-[#2e3553]/[95%] to-[#2e3553] text-[#faf8fd]'
+                'w-screen h-screen flex flex-col gap-5 items-center justify-center bg-gradient-to-br from-[#2e3553]/[95%] to-[#2e3553] text-[#faf8fd]'
             }
         >
             <GitIcon />
