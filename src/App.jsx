@@ -4,9 +4,7 @@ import BannerChart from './components/BannerChart';
 import CurrencyRow from './components/CurrencyRow';
 import GitIcon from './components/GitIcon';
 
-const API_KEY = process.env.API_KEY;
-
-const BASE_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`;
+const BASE_URL='https://v6.exchangerate-api.com/v6/62eef46e2964c6f134cf92cc/latest/USD'
 
 function App() {
     const [currencyOption, setCurrencyOption] = useState([]);
@@ -38,7 +36,7 @@ function App() {
 
     useEffect(() => {
         if (fromCurrency != null && tocurrency != null) {
-            fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${tocurrency}`)
+            fetch(`https://v6.exchangerate-api.com/v6/62eef46e2964c6f134cf92cc/pair/${fromCurrency}/${tocurrency}`)
                 .then((res) => res.json())
                 .then((data) => setExchangeRates(data.conversion_rate));
         }
