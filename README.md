@@ -60,3 +60,7 @@ cd currency_converter_react
 This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
 
 ---
+
+Thanks a lot for spending your time helping currency_converter_react.
+
+[![Contributors](https://contrib.rocks/image?repo=codemaniac-sahil/currency_converter_react)](https://github.com/codemaniac-sahil/currency_converter_react/graphs/contributors)
