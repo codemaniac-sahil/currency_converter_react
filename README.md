@@ -53,7 +53,7 @@ cd currency_converter_react
 
 - Contributions make the open source community such an amazing place to learn, inspire, and create.
 - Any contributions you make are truly appreciated.
-- API used in this project is **exchangerate-api**.
+- API used in this project is **[exchangerate.host](https://exchangerate.host/#/)**.
 
 ## 🙏 Support
 
