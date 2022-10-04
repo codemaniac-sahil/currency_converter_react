@@ -60,6 +60,7 @@ cd currency_converter_react
 This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
 
 ---
+# Thanks to all Contributors
 
 Thanks a lot for spending your time helping currency_converter_react.
 
