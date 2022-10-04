@@ -2,7 +2,7 @@ import React from 'react';
 import './CurrencyRow.css';
 
 function CurrencyRow(props) {
-    const { currencyOption, selectedCurrency, onChangeCurrency, onChangeAmount, amount } = props;
+    const { currencyOption, selectedCurrency, onCurrencyChange, onChangeAmount, amount } = props;
     return (
         <div className={'flex gap-5'}>
             <input
@@ -17,7 +17,7 @@ function CurrencyRow(props) {
                     'rounded border-2 border-[#a86ff7] transition-all ease-out duration-300 outline-none px-4 py-2 bg-transparent'
                 }
                 value={selectedCurrency}
-                onChange={onChangeCurrency}
+                onChange={onCurrencyChange}
             >
                 {currencyOption.map((option) => (
                     <option key={option} value={option}>

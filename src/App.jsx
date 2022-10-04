@@ -4,17 +4,26 @@ import BannerChart from './components/BannerChart';
 import CurrencyRow from './components/CurrencyRow';
 import GitIcon from './components/GitIcon';
 
-const BASE_URL='https://v6.exchangerate-api.com/v6/62eef46e2964c6f134cf92cc/latest/USD'
+const INITIAL_BASE_CURRENCY = 'USD';
+const BASE_URL = 'https://api.exchangerate.host';
+
+const CURRENCY_CHANGE_TYPES = {
+    FROM: 'FROM',
+    TO: 'TO',
+}
 
 function App() {
-    const [currencyOption, setCurrencyOption] = useState([]);
+    const [currencies, setCurrencies] = useState([]);
     const [fromCurrency, setFromCurrency] = useState();
-    const [tocurrency, setTocurrency] = useState();
+    const [toCurrency, setToCurrency] = useState();
+
     const [amount, setAmount] = useState(1);
-    const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
+    const [persistAmountInFromCurrency, setPersistAmountInFromCurrency] = useState(true);
+
     const [exchangeRates, setExchangeRates] = useState();
+
     let toAmount, fromAmount;
-    if (amountInFromCurrency) {
+    if (persistAmountInFromCurrency) {
         fromAmount = amount;
         toAmount = amount * exchangeRates;
     } else {
@@ -23,38 +32,59 @@ function App() {
     }
 
     useEffect(() => {
-        fetch(BASE_URL)
+        fetch(`${BASE_URL}/latest?base=${INITIAL_BASE_CURRENCY}`)
             .then((res) => res.json())
             .then((data) => {
-                const firstCurrency = Object.keys(data.conversion_rates)[1];
-                setCurrencyOption([...Object.keys(data.conversion_rates)]);
-                setFromCurrency(data.base_code);
-                setTocurrency(firstCurrency);
-                setExchangeRates(data.conversion_rates[firstCurrency]);
+                const currencies = Object.keys(data.rates);
+                // Take the first currency
+                let firstCurrency = currencies[0];
+                // If the first currency is same as the initial base currency, take the second one
+                if (firstCurrency === INITIAL_BASE_CURRENCY) firstCurrency = currencies[1];
+
+                setCurrencies([...currencies]);
+                setFromCurrency(data.base);
+                setToCurrency(firstCurrency);
+                setExchangeRates(data.rates[firstCurrency]);
             });
     }, []);
 
-    useEffect(() => {
-        if (fromCurrency != null && tocurrency != null) {
-            fetch(`https://v6.exchangerate-api.com/v6/62eef46e2964c6f134cf92cc/pair/${fromCurrency}/${tocurrency}`)
-                .then((res) => res.json())
-                .then((data) => setExchangeRates(data.conversion_rate));
-        }
-    }, [fromCurrency, tocurrency]);
+    // used function instead of useEffect to reduce unnecessary re-renders
+    const fetchConversionRates = (fromCurrency, toCurrency) => {
+        if (!fromCurrency || !toCurrency) return;
 
-    function handleFromAmountChange(e) {
+        fetch(`${BASE_URL}/convert?from=${fromCurrency}&to=${toCurrency}`)
+            .then((res) => res.json())
+            .then((data) => setExchangeRates(data.result));
+    };
+
+    const handleFromAmountChange = e => {
         setAmount(e.target.value);
-        setAmountInFromCurrency(true);
-    }
+        setPersistAmountInFromCurrency(true);
+    };
 
-    function handleToAmountChange(e) {
+    const handleToAmountChange = e => {
         setAmount(e.target.value);
-        setAmountInFromCurrency(false);
-    }
+        setPersistAmountInFromCurrency(false);
+    };
 
-    function handleClear() {
+    const handleClear = () => {
         setAmount(0);
-    }
+    };
+
+    const handleCurrencyChange = (value, type = CURRENCY_CHANGE_TYPES.FROM) => {
+        switch (type) {
+            case CURRENCY_CHANGE_TYPES.FROM:
+                setFromCurrency(value);
+                fetchConversionRates(value, toCurrency);
+                break;
+            case CURRENCY_CHANGE_TYPES.TO:
+                setToCurrency(value);
+                fetchConversionRates(fromCurrency, value);
+                break;
+            default:
+                console.error('Invalid type passed. Must be one of FROM, TO. Found: ' + type);
+        }
+    };
 
     return (
         <div
@@ -63,22 +93,22 @@ function App() {
             }
         >
             <GitIcon />
-            <BannerChart fromCurrency={fromCurrency} tocurrency={tocurrency} exchangeRates={exchangeRates} />
-            <div className="flex flex-col gap-10">
+            <BannerChart fromCurrency={fromCurrency} toCurrency={toCurrency} exchangeRates={exchangeRates} />
+            <div className='flex flex-col gap-10'>
                 <h1 className={'text-[#d578e6] text-center'}>Convert</h1>
-                <div className="flex flex-col">
+                <div className='flex flex-col'>
                     <CurrencyRow
-                        currencyOption={currencyOption}
+                        currencyOption={currencies}
                         selectedCurrency={fromCurrency}
-                        onChangeCurrency={(e) => setFromCurrency(e.target.value)}
+                        onCurrencyChange={(e) => handleCurrencyChange(e.target.value, 'FROM')}
                         amount={fromAmount}
                         onChangeAmount={handleFromAmountChange}
                     />
-                    <div className="text-4xl font-bold text-center">=</div>
+                    <div className='text-4xl font-bold text-center'>=</div>
                     <CurrencyRow
-                        currencyOption={currencyOption}
-                        selectedCurrency={tocurrency}
-                        onChangeCurrency={(e) => setTocurrency(e.target.value)}
+                        currencyOption={currencies}
+                        selectedCurrency={toCurrency}
+                        onCurrencyChange={(e) => handleCurrencyChange(e.target.value, 'TO')}
                         amount={toAmount}
                         onChangeAmount={handleToAmountChange}
                     />
