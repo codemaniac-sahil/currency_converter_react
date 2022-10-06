@@ -3,6 +3,7 @@ import './App.css';
 import BannerChart from './components/BannerChart';
 import CurrencyRow from './components/CurrencyRow';
 import GitIcon from './components/GitIcon';
+import "../node_modules/currency-flags/dist/currency-flags.css";
 
 const INITIAL_BASE_CURRENCY = 'USD';
 const BASE_URL = 'https://api.exchangerate.host';
@@ -52,6 +53,7 @@ function App() {
     const fetchConversionRates = (fromCurrency, toCurrency) => {
         if (!fromCurrency || !toCurrency) return;
 
+        console.log(fromCurrency,toCurrency)
         fetch(`${BASE_URL}/convert?from=${fromCurrency}&to=${toCurrency}`)
             .then((res) => res.json())
             .then((data) => setExchangeRates(data.result));

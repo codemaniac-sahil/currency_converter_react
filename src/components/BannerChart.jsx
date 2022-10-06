@@ -2,6 +2,7 @@ import React from 'react';
 
 function BannerChart(props) {
     const { toCurrency, fromCurrency, exchangeRates } = props;
+    if(!fromCurrency || !toCurrency) return
     return (
         <>
             <h1
@@ -15,7 +16,9 @@ function BannerChart(props) {
             <div className="text-center">
                 <h2 className={'font-bold'}> Today's Price</h2>
                 <p className={'text-xl font-light'}>
-                    1 {fromCurrency} = {Math.round((exchangeRates + Number.EPSILON) * 100) / 100} {toCurrency}
+                <div className={"currency-flag currency-flag-lg currency-flag-" + fromCurrency.toLowerCase()}></div> 
+                1 {fromCurrency} = {Math.round((exchangeRates + Number.EPSILON) * 100) / 100} {toCurrency}
+                <div className={"currency-flag currency-flag-lg currency-flag-" + toCurrency.toLowerCase()}></div> 
                 </p>
             </div>
             <div className={'h-[1px] w-[200px] bg-gray-400/50 mb-5'} />
