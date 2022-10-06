@@ -3,6 +3,7 @@ import './CurrencyRow.css';
 
 function CurrencyRow(props) {
     const { currencyOption, selectedCurrency, onCurrencyChange, onChangeAmount, amount } = props;
+    if(!selectedCurrency) return
     return (
         <div className={'flex gap-5'}>
             <input
@@ -25,6 +26,7 @@ function CurrencyRow(props) {
                     </option>
                 ))}
             </select>
+            <div className={"currency-flag currency-flag-lg currency-flag-" + selectedCurrency.toLowerCase()}></div> 
         </div>
     );
 }

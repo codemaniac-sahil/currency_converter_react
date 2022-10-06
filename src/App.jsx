@@ -53,7 +53,6 @@ function App() {
     const fetchConversionRates = (fromCurrency, toCurrency) => {
         if (!fromCurrency || !toCurrency) return;
 
-        console.log(fromCurrency,toCurrency)
         fetch(`${BASE_URL}/convert?from=${fromCurrency}&to=${toCurrency}`)
             .then((res) => res.json())
             .then((data) => setExchangeRates(data.result));
